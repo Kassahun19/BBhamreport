@@ -1,0 +1,8 @@
+{
+  "name": "Bunna Bank Hamusit Branch Daily Campaign Report System",
+  "description": "Daily campaign achievements recording and tracking system for Bunna Bank Hamusit Branch. Calculates real-time metrics for Customer Base, Mobile Banking, Internet Banking, ATM, and Merchant activations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

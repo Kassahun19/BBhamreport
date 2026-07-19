@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-green: #0a4d25;
+  --color-brand-green-light: #167e42;
+  --color-brand-green-dark: #063518;
+  --color-brand-gold: #e5af12;
+  --color-brand-gold-dark: #c0920d;
+  --color-brand-gold-light: #fcd55a;
+}
+
+/* Custom global styles for smooth scrolling and clean look */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-sans);
+  background-color: #fcfdfa;
+  color: #1a251e;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f4f2;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd3ce;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9fae02;
+}
+
+/* Glassmorphism utility classes */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-card-dark {
+  background: rgba(10, 77, 37, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(10, 77, 37, 0.15);
+}
+
+/* Glowing accent shadows */
+.shadow-gold-glow {
+  box-shadow: 0 4px 20px -2px rgba(229, 175, 18, 0.25);
+}
+
+.shadow-green-glow {
+  box-shadow: 0 4px 25px -2px rgba(10, 77, 37, 0.15);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Custom active nav-link indicator */
+.nav-active {
+  color: var(--color-brand-gold);
+  border-bottom: 2px solid var(--color-brand-gold);
+}
+
