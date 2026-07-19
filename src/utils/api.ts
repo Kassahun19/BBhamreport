@@ -1,7 +1,33 @@
 // Bunna Bank campaign API client helper
 import { DailyReport, DashboardSummary, Statistics, User } from "../types";
 
-const API_BASE = ""; // relative paths will hit our Express server automatically
+// Detect the backend base URL dynamically
+// If the app is run from a different origin (like Vercel, Netlify, custom domain), we should target the Shared App URL backend!
+const getApiBase = (): string => {
+  if (typeof window === "undefined") return "";
+  
+  // Allow manual override via environment variables
+  const env = (import.meta as any).env;
+  if (env && env.VITE_API_URL) {
+    return env.VITE_API_URL;
+  }
+  
+  const hostname = window.location.hostname;
+  
+  // If running locally (localhost, 127.0.0.1) or directly on the Cloud Run development/production domain, use relative paths.
+  if (
+    hostname === "localhost" || 
+    hostname === "127.0.0.1" || 
+    hostname.includes("run.app")
+  ) {
+    return "";
+  }
+  
+  // Otherwise, if deployed on Vercel or other platform, target the live Shared App URL container!
+  return "https://ais-pre-tp42fi4trlyc7ipolwijlw-46967922848.europe-west2.run.app";
+};
+
+const API_BASE = getApiBase();
 
 export function getHeaders(): HeadersInit {
   const token = localStorage.getItem("bunna_token");
